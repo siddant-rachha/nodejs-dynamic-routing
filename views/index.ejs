@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Routes</title>
+    <style>
+        .dir{
+            background-color: burlywood;
+            max-width: 50%;
+            font-size: larger;
+            padding: 2px;
+            margin: 2px;
+            border: 1px solid black;
+        }
+        a {
+            color: blue;
+        }
+        a:hover{
+            color: white;
+        }
+        button{margin: 10px;}
+    </style>
+</head>
+<body>
+    <% console.log(backUrl) %>
+    <% if(!(backUrl=='')){ %>
+    <a href="<%= backUrl %>"><button>Back</button></a> <% } %>
+    <% if(!array_dir_contents[0]){ %><h1>empty</h1><% } %>
+    <% for (let index = 0; index < array_dir_contents.length; index++) { %>
+        <% let check = !isFile[index] %>
+        <% if(check){ %> <a href="<%= `${url}/${array_dir_contents[index]}` %>"> <% } %>
+            <div class="dir"><%= array_dir_contents[index] %></div>
+        <% if(check){ %> </a> <% } %>
+    <% } %>
+</body>
+
+</html>
